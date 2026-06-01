@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const pool = require('../db')
 
-// Save a survey response
+// post to save and exit a survey response
 router.post('/', async (req, res) => {
   const { user_id, stage, reason } = req.body
   try {
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
       `SELECT stage, reason, COUNT(*) as count 
        FROM survey_responses 
        GROUP BY stage, reason 
-       ORDER BY count DESC`
+       ORDER BY count DESC` //ordered from most common reasons first
     )
     res.json(result.rows)
   } catch (err) {

@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
+//reusable card components that display a single thing on the dashboard
 function Cards({ title, value, trend }) {
   return (
     <Card>

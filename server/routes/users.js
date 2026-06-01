@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const pool = require('../db')
 
-// Create a new user
+// Creating a new user
 router.post('/', async (req, res) => {
   const { email } = req.body
   try {
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-// Get all users
+// Get all users and will return user records from the user table
 router.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM users')
