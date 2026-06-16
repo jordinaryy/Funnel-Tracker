@@ -7,6 +7,8 @@ import FunnelChart from '../components/FunnelChart'
 function Dashboard() {
   //state to store funnel analytics data fetched from the API
   const [funnelData, setFunnelData] = useState([])
+
+  const [userCount, setUserCount] = useState(0)
   //state to track to see if the data is still being fetched
   const [loading, setLoading] = useState(true)
 //fetches funnel data from the API
@@ -15,27 +17,46 @@ function Dashboard() {
       .get("http://localhost:5000/api/funnel/analytics")
       .then((response) => {
         setFunnelData(response.data) //stores the data in state
-        console.log(response.data)
       })
       .catch((error) => {
         console.error(error) //logs any errors
       })
+
+    axios.get('http://localhost:5000/api/users')
+      .then((response) => {
+        setUserCount(response.data.length)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
       .finally(() => {
         setLoading(false) //stops the loading state whether the request succeeded or failed
-        console.log("Request completed")
       })
   }, []) //empty array which runs only once when the page is loaded initially 
+
+  const getCount = (stage) => {
+    const found = funnelData.find(item => item.stage === stage)
+    return found ? found.count : 0
+  }
+
 
   return (
     <Container>
       <h1>Dashboard</h1>
-      <div className="d-flex gap-3 ny-3">
-        <Cards title="Total Visitors" value={2000} trend="+25%" />
-        <Cards title="Sign ups" value={563} trend="+12%" />
-        <Cards title="Activation Rate" value="34%" trend="-10%" />
-        <Cards title="7-Day Retention" value="18%" trend="+8%" />
+
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+      <div className="d-flex gap-3 my-3">
+        <Cards title="Total Users" value={userCount} trend="" />
+        <Cards title="Sign Ups" value={getCount('Sign Up')} trend="" />
+        <Cards title="Activation Rate" value={getCount('Profile Setup')} trend="" />
+        <Cards title="7-Day Retention" value={getCount('Return Visit')} trend="" />
       </div>
-      <FunnelChart />
+      <FunnelChart funnelData={funnelData} />
+      </>
+      )}
     </Container>
   )
 }

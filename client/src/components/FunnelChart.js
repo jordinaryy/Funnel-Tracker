@@ -4,13 +4,16 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 //chart data like labels and datasets
-const FunnelChart = () => {
+const FunnelChart = ({ funnelData }) => {
+
+  const labels = funnelData.map(item => item.stage)
+  const counts = funnelData.map(item => parseInt(item.count))
   const data = {
-    labels: ['Landing Page', 'Sign Up', 'Profile Setup', 'First Action', 'Return Visit'],
+    labels: labels.length > 0 ? labels : ['No data yet'],
     datasets: [
       {
         label: 'Users',
-        data: [3241, 847, 523, 382, 243, 183], //number of users who reached each stage
+        data: counts.length > 0 ? counts : [0], //number of users who reached each stage
         backgroundColor: '#8884d8', //bar color
         borderRadius: 10,
       }

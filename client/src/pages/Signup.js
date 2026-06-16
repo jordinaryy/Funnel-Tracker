@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-// Signup page — user enters their email to create an account
+// Signup page that the user enters their email to create an account
 function Signup({ setCurrentPage, setUserId }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')

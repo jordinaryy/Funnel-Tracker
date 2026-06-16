@@ -31,7 +31,12 @@ function Onboarding({ setCurrentPage, userId }) {
       if (step < stages.length) {
         setStep(step + 1) // Move to next step
       } else {
-        setCurrentPage('complete') // All steps done
+        return axios.put(`http://localhost:5000/api/abtest/${userId}`) 
+      }
+    })
+    .then((response) => {
+      if (response) {
+        setCurrentPage('complete')
       }
     })
     .catch((error) => {

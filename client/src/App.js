@@ -7,7 +7,8 @@ import Landing from './pages/Landing'
 import Signup from './pages/Signup'
 import Onboarding from './pages/Onboarding'
 import ABTests from './pages/ABTests'
-
+import Surveys from './pages/Surveys'
+import Message from './pages/Message'
 //state the variable that tracks which page the user is on
 function App() {
 
@@ -18,22 +19,25 @@ function App() {
   const adminPages = ['dashboard', 'funnel', 'abtests', 'surveys']
   const isAdminPage = adminPages.includes(currentPage)
 
-  //the navigation bar below receives the currentPage and setCurrentPage
-  //so it can highlight the link thats active and will allow the user to switch pages on click
+  
   return (
     <div>
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+     {/* //the navigation bar below receives the currentPage and setCurrentPage 
+      so it can highlight the link thats active and will allow the user to switch pages on click */}
+      {isAdminPage && <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />}
 
+      {/* user pages */}
       {currentPage === 'landing' && <Landing setCurrentPage={setCurrentPage} />}
       {currentPage === 'signup' && <Signup setCurrentPage={setCurrentPage} setUserId={setUserId} />}
       {currentPage === 'onboarding' && <Onboarding setCurrentPage={setCurrentPage} userId={userId} />}
+      {currentPage === 'message' && <Message setCurrentPage={setCurrentPage} />}  
 
 
-
-
-      {currentPage == 'dashboard' && <Dashboard/>}
-      {currentPage == 'funnel' && <Funnel />}
-      {currentPage === 'abtests' && <ABTests />}
+      {/* admin pages */}
+      {currentPage === 'dashboard' && <Dashboard/>}
+      {currentPage === 'funnel' && <Funnel />}
+      {currentPage === 'ABtests' && <ABTests />}
+      {currentPage === 'surveys' && <Surveys />}
     </div>
   )
 }

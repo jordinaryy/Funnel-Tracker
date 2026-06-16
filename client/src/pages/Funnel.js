@@ -28,7 +28,7 @@ function Funnel() {
     <Container className="mt-4">
       <h1>Funnel Analysis</h1>
       <p> breakdown of each onboarding stage</p>
-      <FunnelChart />
+      <FunnelChart funnelData={funnelData} />
       <Table striped bordered hover className="mt-4">
         <thead>
           <tr>
@@ -38,11 +38,15 @@ function Funnel() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Landing Page</td><td>10000</td><td>-</td></tr>
-          <tr><td>Sign Up</td><td>773</td><td>43%</td></tr>
-          <tr><td>Profile Setup</td><td>391</td><td>64%</td></tr>
-          <tr><td>First Action</td><td>221</td><td>44%</td></tr>
-          <tr><td>Return Visit</td><td>121</td><td>33%</td></tr>
+          {funnelData.map((item, index) => (
+            <tr key={index}>
+              <td>{item.stage}</td>
+              <td>{item.count}</td>
+              <td>
+                {index === 0 ? '-' : `${Math.round((1 - item.count / funnelData[index - 1].count) * 100)}%`}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </Container>
