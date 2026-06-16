@@ -14,14 +14,8 @@ function Navigation({ currentPage, setCurrentPage }) {
           <Nav className="me-auto">
             <Nav.Link onClick={() => setCurrentPage('dashboard')}>Dashboard</Nav.Link>
             <Nav.Link onClick={() => setCurrentPage('funnel')}>Funnel</Nav.Link>
-            <Nav.Link onClick={() => setCurrentPage('ABtests')}>A/B Tests</Nav.Link>
+            <Nav.Link onClick={() => setCurrentPage('abtests')}>A/B Tests</Nav.Link>
             <Nav.Link onClick={() => setCurrentPage('surveys')}>Surveys</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#Surveys">Surveys</Nav.Link>
-            <Nav.Link eventKey={2} href="#NewUser">
-              New User
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -36,7 +36,7 @@ function App() {
       {/* admin pages */}
       {currentPage === 'dashboard' && <Dashboard/>}
       {currentPage === 'funnel' && <Funnel />}
-      {currentPage === 'ABtests' && <ABTests />}
+      {currentPage === 'abtests' && <ABTests />}
       {currentPage === 'surveys' && <Surveys />}
     </div>
   )

@@ -17,6 +17,15 @@ function Landing({ setCurrentPage }) {
       >
         Get Started
       </Button>
+        {/* Admin button for viewing analytics dashboard */}
+      <br />
+      <Button
+        variant="outline-secondary"
+        className="mt-3"
+        onClick={() => setCurrentPage('dashboard')}
+      >
+        Admin Dashboard
+    </Button>
     </Container>
   )
 }

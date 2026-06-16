@@ -12,8 +12,8 @@ function Onboarding({ setCurrentPage, userId }) {
 
   // Funnel stages in order
   const stages = [
-    'Email Verified',
     'Profile Setup',
+    'Email Verified',
     'First Action',
     'Return Visit'
   ]
@@ -36,7 +36,7 @@ function Onboarding({ setCurrentPage, userId }) {
     })
     .then((response) => {
       if (response) {
-        setCurrentPage('complete')
+        setCurrentPage('message')
       }
     })
     .catch((error) => {
