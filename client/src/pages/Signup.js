@@ -17,7 +17,7 @@ function Signup({ setCurrentPage, setUserId }) {
     }
 
     // Post new user to the backend API
-    axios.post('https://funnel-tracker-api.onrender.com', { email })
+    axios.post('https://funnel-tracker-api.onrender.com/api/users', { email })
       .then((response) => {
         const newUser = response.data
 
@@ -25,7 +25,7 @@ function Signup({ setCurrentPage, setUserId }) {
         setUserId(newUser.id)
 
         // Log the sign up funnel event
-        return axios.post('https://funnel-tracker-api.onrender.com', {
+        return axios.post('https://funnel-tracker-api.onrender.com/api/funnel', {
           user_id: newUser.id,
           stage: 'Sign Up'
         })

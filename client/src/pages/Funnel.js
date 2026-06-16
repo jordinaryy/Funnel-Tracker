@@ -8,19 +8,16 @@ function Funnel() {
   //state to store funnel analytics data fetched from the API
   const [funnelData, setFunnelData] = useState([])
   //state to track to see if the data is still being fetched
-  const [loading, setLoading] = useState(true)
+ 
 //fetches funnel data from the API
   useEffect(() => {
     axios
-      .get("https://funnel-tracker-api.onrender.com")
+      .get("https://funnel-tracker-api.onrender.com/api/funnel/analytics")
       .then((response) => {
         setFunnelData(response.data) //stores the data in state
       })
       .catch((error) => {
         console.error(error) //logs any errors
-      })
-      .finally(() => {
-        setLoading(false) //stops the loading state whether the request succeeded or failed
       })
   }, [])
 

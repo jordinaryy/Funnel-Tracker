@@ -14,7 +14,7 @@ function Dashboard() {
 //fetches funnel data from the API
   useEffect(() => {
     axios
-      .get("https://funnel-tracker-api.onrender.com")
+      .get("https://funnel-tracker-api.onrender.com/api/funnel/analytics")
       .then((response) => {
         setFunnelData(response.data) //stores the data in state
       })
@@ -22,7 +22,7 @@ function Dashboard() {
         console.error(error) //logs any errors
       })
 
-    axios.get('https://funnel-tracker-api.onrender.com')
+    axios.get('https://funnel-tracker-api.onrender.com/api/users')
       .then((response) => {
         setUserCount(response.data.length)
       })

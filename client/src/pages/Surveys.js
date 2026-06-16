@@ -11,7 +11,7 @@ function Surveys() {
   // Fetch all survey responses from the backend when the page loads
   useEffect(() => {
     axios
-      .get('https://funnel-tracker-api.onrender.com')
+      .get('https://funnel-tracker-api.onrender.com/api/surveys')
       .then((response) => {
         setSurveyData(response.data)
       })

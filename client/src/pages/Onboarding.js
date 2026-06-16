@@ -23,7 +23,7 @@ function Onboarding({ setCurrentPage, userId }) {
 
   // Log funnel event when user completes a step
   const completeStep = () => {
-    axios.post('https://funnel-tracker-api.onrender.com', {
+    axios.post('https://funnel-tracker-api.onrender.com/api/funnel', {
       user_id: userId,
       stage: stages[step - 1]
     })
@@ -51,7 +51,7 @@ function Onboarding({ setCurrentPage, userId }) {
 
   // Save survey response and exit onboarding
   const submitSurvey = () => {
-    axios.post('https://funnel-tracker-api.onrender.com', {
+    axios.post('https://funnel-tracker-api.onrender.com/api/surveys', {
       user_id: userId,
       stage: stages[step - 1],
       reason: surveyReason
