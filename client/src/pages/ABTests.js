@@ -14,7 +14,7 @@ function ABTests() {
   // Fetch real A/B test results from the backend when the page loads
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/abtest')
+      .get('https://funnel-tracker-api.onrender.com')
       .then((response) => {
         setAbData(response.data)
       })

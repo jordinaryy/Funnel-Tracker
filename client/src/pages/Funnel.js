@@ -12,7 +12,7 @@ function Funnel() {
 //fetches funnel data from the API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/funnel/analytics")
+      .get("https://funnel-tracker-api.onrender.com")
       .then((response) => {
         setFunnelData(response.data) //stores the data in state
       })

@@ -23,7 +23,7 @@ function Onboarding({ setCurrentPage, userId }) {
 
   // Log funnel event when user completes a step
   const completeStep = () => {
-    axios.post('http://localhost:5000/api/funnel', {
+    axios.post('https://funnel-tracker-api.onrender.com', {
       user_id: userId,
       stage: stages[step - 1]
     })
@@ -31,7 +31,7 @@ function Onboarding({ setCurrentPage, userId }) {
       if (step < stages.length) {
         setStep(step + 1) // Move to next step
       } else {
-        return axios.put(`http://localhost:5000/api/abtest/${userId}`) 
+        return axios.put(`https://funnel-tracker-api.onrender.com/api/abtest/${userId}`) 
       }
     })
     .then((response) => {
@@ -51,7 +51,7 @@ function Onboarding({ setCurrentPage, userId }) {
 
   // Save survey response and exit onboarding
   const submitSurvey = () => {
-    axios.post('http://localhost:5000/api/surveys', {
+    axios.post('https://funnel-tracker-api.onrender.com', {
       user_id: userId,
       stage: stages[step - 1],
       reason: surveyReason
