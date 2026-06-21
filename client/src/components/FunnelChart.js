@@ -14,7 +14,7 @@ const FunnelChart = ({ funnelData }) => {
       {
         label: 'Users',
         data: counts.length > 0 ? counts : [0], //number of users who reached each stage
-        backgroundColor: '#8884d8', //bar color
+        backgroundColor: '#84d8a7', //bar color
         borderRadius: 10,
       }
     ]
@@ -28,7 +28,7 @@ const FunnelChart = ({ funnelData }) => {
     }
   }
   //chart rendering the bar chart with the data and options above
-  return <Bar data={data} options={options} />
+  return <Bar data={data} options={options} /> 
 }
 
 export default FunnelChart

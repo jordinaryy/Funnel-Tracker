@@ -6,7 +6,7 @@ const pool = require('../db')
 
 // POST /api/users — Create a new user
 // Accepts an email in the request body and inserts it into the users table
-// Automatically assigns the user to Variant A or B for A/B testing
+// Will automatically assigns the user to Variant A or B for A/B testing
 router.post('/', async (req, res) => {
   const { email } = req.body
   try {

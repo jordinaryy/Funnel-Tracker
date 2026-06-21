@@ -7,7 +7,7 @@ function Message({ setCurrentPage }) {
     <Container className="text-center mt-5">
       <h1> You're good to go!</h1>
       <p className="mt-3">You have successfully completed the onboarding process.</p>
-      <p>Thank you for using my FunnelTrack app! I hope you find it as cool as i did!!</p>
+      <p>Thank you for using my FunnelTracker app! I hope you find it as cool as i did!!</p>
       <Button
         variant="primary"
         className="mt-4"
