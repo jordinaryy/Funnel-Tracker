@@ -1,9 +1,9 @@
 # Funnel-Tracker
 Full Stack Funnel Analysis Web Tracker
 
-A full stack funnel analysis web application that tracks user behavior through an onboarding flow, visualizes drop off rates at each stage, and includes A/B testing and exit survey functionality.
+The project I made is a full stack funnel analysis web application that tracks user behavior through an onboarding flow, shows the drop off rates at each stage, and includes A/B testing and an exit survey for those who do not finish the onboarding process.
 
-This was built as my capstone project for CS 499 at Southern New Hampshire University.
+This project was built as my capstone project for CS 499 at Southern New Hampshire University.
 
 ## Live Demo
 
